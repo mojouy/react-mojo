@@ -1,0 +1,30 @@
+.app-promotion {
+  @include xy-cell(auto);
+  background-color: $primary-color;
+  min-height: 100vh;
+
+  @include breakpoint(medium down) { @include xy-cell(12); }
+
+  .phone-wrapper {
+    margin-top: rem-calc(30);
+    position: relative;
+
+    img { max-width: 45%; }
+  }//phone-wrapper
+
+  .appstore-btn {
+    display: inline-block;
+    width: rem-calc(120);
+  }
+
+  .social-links {
+    margin: rem-calc(15) 0;
+
+    a {
+      color: $white;
+      font-size: rem-calc(26);
+
+      &:first-of-type { margin-right: rem-calc(15); }
+    }
+  }//social links
+}//App promotion

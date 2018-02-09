@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Link, browserHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import * as sessionActions from '../actions/sessionActions';
 import LoginForm from '../components/session/LoginForm'; // eslint-disable-line import/no-named-as-default
 import { routes } from '../constants/routesPaths';
+import SharedFormLink from '../components/common/SharedFormLink';
 
 const LoginPage = ({ actions: { login }, authenticated }) => {
   if (authenticated) {
@@ -15,7 +16,7 @@ const LoginPage = ({ actions: { login }, authenticated }) => {
     <div>
       <p>LOGIN</p>
       <LoginForm onSubmit={login} />
-      <Link to={routes.signUp}> Sign up </Link>
+      <SharedFormLink name="Sign up" to={routes.signUp} />
     </div>
   );
 };

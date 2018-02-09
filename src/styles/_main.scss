@@ -1,0 +1,64 @@
+//General Styles
+body { overflow-x: hidden; }
+h5 { letter-spacing: rem-calc(3); }
+
+//Buttons
+.button {
+  font-weight: $global-weight-bold;
+  letter-spacing: rem-calc(1.6);
+  text-transform: uppercase;
+
+  &:not(.transparent) { box-shadow: 0 rem-calc(2 4) 0 rgba($black, .3); }
+
+  &.transparent {
+    background-color: transparent;
+    border-top: 1px solid $medium-gray;
+    color: $black;
+  }
+}
+
+//Forms
+form {
+  label {
+    letter-spacing: rem-calc(1.6);
+    text-transform: uppercase;
+
+    &.error {
+      background-color: $alert-color;
+      color: $white;
+    }//error label
+  }//label
+
+  span.error {
+    color: $alert-color;
+    display: block;
+    font-size: rem-calc(12);
+  }
+}//forms
+
+@mixin placeholder {
+  color: $medium-gray;
+  font-size: rem-calc(11);
+  letter-spacing: rem-calc(1.5);
+  text-transform: uppercase;
+}
+
+//Inputs
+input {
+  @include input-placeholder { @include placeholder; }
+  text-align: center;
+
+  &.error { border-color: $alert-color; }
+}//inputs
+
+//Dropdown
+.rw-widget-picker { height: rem-calc(39); }
+.rw-select { display: none; }
+.rw-input { padding-left: 0; }
+.rw-placeholder { @include placeholder; }
+
+.rw-widget-input {
+  border-radius: 0;
+
+  .error & { border-color: $alert-color; }
+}

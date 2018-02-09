@@ -1,0 +1,36 @@
+@font-face {
+  $font-url: '../resources/fonts/';
+
+  font-family: 'icons';
+  font-style: normal;
+  font-weight: normal;
+  src: url('#{$font-url}icons.eot?kz5xg');
+  src:
+    url('#{$font-url}icons.eot?kz5xg#iefix') format('embedded-opentype'),
+    url('#{$font-url}icons.ttf?kz5xg') format('truetype'),
+    url('#{$font-url}icons.woff?kz5xg') format('woff'),
+    url('#{$font-url}icons.svg?kz5xg#icons') format('svg');
+}
+
+[class^="icn-"],
+[class*=" icn-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icons' !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+}
+
+.icn-movie::before { content: '\e900'; }
+.icn-music::before { content: '\e901'; }
+.icn-planet::before { content: '\e902'; }
+.icn-tv::before { content: '\e903'; }
+.icn-facebook::before { content: '\e904'; }
+.icn-twitter::before { content: '\e905'; }
+.icn-cross::before { content: '\e906'; }
+.icn-play::before { content: '\e907'; }

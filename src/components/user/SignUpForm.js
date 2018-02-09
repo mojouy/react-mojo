@@ -3,44 +3,76 @@ import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import Input from '../common/Input';
 import * as constraints from '../../utils/constraints';
+import DropDown from '../common/DropDown';
 
-const SignUpForm = ({ handleSubmit }) => (
-  <form onSubmit={handleSubmit}>
-    <div>
-      <Field
-        name="email"
-        label="Email"
-        component={Input}
-        type="email"
-      />
-    </div>
-    <div>
-      <Field
-        name="password"
-        label="Password"
-        component={Input}
-        type="password"
-      />
-    </div>
-    <div>
-      <Field
-        name="passwordConfirmation"
-        label="Password confirmation"
-        component={Input}
-        type="password"
-      />
-    </div>
-    <button type="submit">Submit</button>
-  </form>
-);
+const genders = ['male', 'female'];
 
-const { func } = PropTypes;
+/* eslint-disable import/no-mutable-exports */
+let SignUpForm = (props) => {
+  const { handleSubmit, submitting, pristine, error } = props;
 
-SignUpForm.propTypes = {
-  handleSubmit: func.isRequired
+  return (
+    <form onSubmit={handleSubmit}>
+      {error && <strong>{error}</strong>}
+      <div>
+        <Field
+          name="name"
+          label="Name"
+          component={Input}
+          type="text"
+        />
+      </div>
+      <div>
+        <Field
+          name="email"
+          label="Email"
+          component={Input}
+          type="email"
+        />
+      </div>
+      <div>
+        <Field
+          name="password"
+          label="Password"
+          placeholder="Min. 6 characters long"
+          component={Input}
+          type="password"
+        />
+      </div>
+      <div>
+        <Field
+          name="password_confirmation"
+          label="Confirm Password"
+          component={Input}
+          type="password"
+        />
+      </div>
+      <div>
+        <Field
+          name="gender"
+          label="Gender"
+          data={genders}
+          component={DropDown}
+          placeholder="Select a gender"
+        />
+      </div>
+      <button type="submit" disabled={pristine || submitting} className="button expanded">Submit</button>
+    </form>
+  );
 };
 
-export default reduxForm({
+const { func, bool, string } = PropTypes;
+
+SignUpForm.propTypes = {
+  handleSubmit: func.isRequired,
+  pristine: bool,
+  submitting: bool,
+  error: string
+};
+
+SignUpForm = reduxForm({
   form: 'signUp',
   validate: constraints.validations(constraints.signUp)
 })(SignUpForm);
+
+export default SignUpForm;
