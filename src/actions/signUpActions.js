@@ -6,8 +6,8 @@ import { routes } from '../constants/routesPaths';
 
 export const signUp = user =>
   () =>
-    sessionApi.signUp({ user }).then(({ user }) => {
-      sessionService.saveUser(user)
+    sessionApi.signUp({ user }).then(({ data }) => {
+      sessionService.saveUser(data)
       .then(() => {
         browserHistory.push(routes.index);
       });

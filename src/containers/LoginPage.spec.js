@@ -51,7 +51,7 @@ describe('<LoginPage />', () => {
       };
 
       userResponse = {
-        user: {
+        data: {
           id: 1,
           email: 'joe@joe.com',
           uid: 'joe@joe.com',
@@ -83,7 +83,7 @@ describe('<LoginPage />', () => {
     it('should save the user data', (done) => {
       // wait for the call to save user
       sessionService.saveUser = jest.fn(() => {
-        expect(sessionService.saveUser).toHaveBeenCalledWith(userResponse.user);
+        expect(sessionService.saveUser).toHaveBeenCalledWith(userResponse.data);
         done();
         return Promise.resolve();
       });

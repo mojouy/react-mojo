@@ -1,15 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = ({ input, label, type, placeholder, meta: { touched, error } }) => (
-  <div>
-    {label && <label>{label}</label>}
+const Input = ({ input, label, type, placeholder, meta: { touched, error } }) => {
+  const hasError = touched && error;
+  const errorClass = hasError && 'error';
+  return (
     <div>
-      <input {...input} {...{ placeholder, type }} />
-      {touched && error && <span>{error}</span>}
+      {hasError && <span className="error">{error}</span>}
+      {label && <label className={errorClass}>{label}</label>}
+      <div>
+        <input className={errorClass} {...input} {...{ placeholder, type }} />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const { string, object } = PropTypes;
 

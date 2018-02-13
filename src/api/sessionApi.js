@@ -5,8 +5,8 @@ class Session {
     return api.post('/users/sign_in', user);
   }
 
-  static logout() {
-    return api.delete('/users/sign_out');
+  static logout(user) {
+    return api.delete('/users/sign_out', user);
   }
 
   static signUp(user) {

@@ -16,11 +16,19 @@ export const signUp = {
     email: true
   },
   password: {
-    presence: true
+    presence: true,
+    length: { minimum: 6 }
   },
-  passwordConfirmation: {
+  password_confirmation: {
     presence: true,
     equality: 'password'
+  },
+  gender: {
+    presence: true
+  },
+  name: {
+    presence: true,
+    length: { minimum: 5 }
   }
 };
 
