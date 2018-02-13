@@ -19,7 +19,7 @@ export const signUp = {
     presence: true,
     length: { minimum: 6 }
   },
-  passwordConfirmation: {
+  password_confirmation: {
     presence: true,
     equality: 'password'
   },

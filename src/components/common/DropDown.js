@@ -16,7 +16,7 @@ const DropDown = ({ label, input, data, placeholder, meta: { touched, error } })
           className={errorClass}
           {...input}
           data={data}
-          {...{ placeholder }}
+          placeholder={placeholder}
         />
       </div>
     </div>
