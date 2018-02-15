@@ -17,4 +17,11 @@
 
     .button { margin-top: rem-calc(40); }
   }//session-wrapper
+
+  .content {
+    @include breakpoint(medium) { max-width: 60%; }
+    margin: 0 auto;
+  }
+
+  .errors { color: $alert-color; }
 }//signup page

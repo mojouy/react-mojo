@@ -1,0 +1,12 @@
+.login-page {
+  .logo { margin-bottom: rem-calc(20); }
+
+  h5 { margin-bottom: rem-calc(20); }
+  p { font-size: rem-calc(14); }
+  form { margin-top: rem-calc(40); }
+
+  h6 {
+    font-size: rem-calc(18);
+    font-weight: $global-weight-normal;
+  }
+}//login page

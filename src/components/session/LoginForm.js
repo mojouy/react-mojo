@@ -4,9 +4,9 @@ import { Field, reduxForm } from 'redux-form';
 import Input from '../common/Input';
 import * as constraints from '../../utils/constraints';
 
-export const LoginForm = ({ handleSubmit, error }) => (
+export const LoginForm = ({ handleSubmit, submitting, pristine, error }) => (
   <form onSubmit={handleSubmit}>
-    {error && <strong>{error}</strong>}
+    {error && <p className="errors">{error}</p>}
     <div>
       <Field
         name="email"
@@ -23,15 +23,17 @@ export const LoginForm = ({ handleSubmit, error }) => (
         type="password"
       />
     </div>
-    <button type="submit">Submit</button>
+    <button type="submit" disabled={pristine || submitting} className="button expanded">Submit</button>
   </form>
 );
 
-const { func, string } = PropTypes;
+const { func, array, bool } = PropTypes;
 
 LoginForm.propTypes = {
   handleSubmit: func.isRequired,
-  error: string
+  pristine: bool,
+  submitting: bool,
+  error: array
 };
 
 export default reduxForm({

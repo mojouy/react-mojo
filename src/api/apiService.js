@@ -29,12 +29,12 @@ const handleErrors = response =>
     }
 
     sessionService.loadSession()
-    .catch(() => {
+    .then(() => {
       if (response.status === 401) {
         sessionService.deleteSession();
         browserHistory.replace(routes.login);
       }
-    });
+    }).catch(() => {});
 
     response.json()
       .then((json) => {
