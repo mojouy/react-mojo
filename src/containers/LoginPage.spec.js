@@ -161,7 +161,7 @@ describe('<LoginPage />', () => {
         email: 'joe@joe.com',
         password: 'invalidPassword'
       };
-      const serverError = { error: 'Invalid login credentials. Please try again.' };
+      const serverError = { errors: ['Invalid login credentials. Please try again.'] };
 
       nock(process.env.API_URL)
       .post('/users/sign_in', { user })
@@ -186,7 +186,7 @@ describe('<LoginPage />', () => {
     it('should display the server error in the form', (done) => {
       // wait for changes in the redux store
       const unsubscribe = store.subscribe(() => {
-        const generalError = subject.find('strong');
+        const generalError = subject.find('p.errors');
         const error = 'Invalid login credentials. Please try again.';
         expect(generalError.text()).toEqual(error);
         unsubscribe();

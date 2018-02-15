@@ -10,7 +10,7 @@ const genders = ['male', 'female'];
 /* eslint-disable import/no-mutable-exports */
 let SignUpForm = ({ handleSubmit, submitting, pristine, error }) => (
   <form onSubmit={handleSubmit}>
-    {error && <strong>{error}</strong>}
+    {error && <p className="errors">{error}</p>}
     <div>
       <Field
         name="name"
